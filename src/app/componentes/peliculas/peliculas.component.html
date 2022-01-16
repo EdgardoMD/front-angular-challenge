@@ -1,1 +1,27 @@
-<p>peliculas works!</p>
+<div class="card text-dark bg-light mb-3">
+    <div class="card-header"> {{ titulo }}</div>
+    <div class="card-body">
+        <!-- <button class="btn btn-primary my-2" [routerLink]="['/peliculas']" routerLinkActive="router-link-active" >Crear</button>
+         <div class="alert alert-info" *ngIf="peliculas?.length == 0">
+            No hay peliculas ni series en la base de datos.
+        </div>  -->
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Titulo</th>
+                    <th>Fecha creación</th>
+                    <th>Calificación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of peliculas">
+                    <td>{{ p.id }}</td>
+                    <td>{{ p.titulo }}</td>
+                    <td>{{ p.fechaCreacion | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{ p.calificacion }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
