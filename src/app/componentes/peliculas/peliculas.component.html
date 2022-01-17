@@ -9,17 +9,29 @@
             <thead>
                 <tr>
                     <th>id</th>
+                    <th>imagen</th>
                     <th>Titulo</th>
                     <th>Fecha creación</th>
                     <th>Calificación</th>
+                    <th>eliminar</th>               
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let p of peliculas">
                     <td>{{ p.id }}</td>
+                    <td>
+                        <img *ngIf="p.imagenHashCode"
+                        [src]="'http://localhost:8095/movies/uploads/img/' + p.id + '?fotoHashCode=' + p.imagenHashCode"
+                        class="img-thumbnail" style="width: 100px; cursor: pointer;">
+                    </td>
                     <td>{{ p.titulo }}</td>
-                    <td>{{ p.fechaCreacion | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{ p.fechaCreacion | date: 'MMMM d of y'}}</td>
                     <td>{{ p.calificacion }}</td>
+                    <td> 
+                        <button (click) = "eliminar(p)" 
+                        class="btn btn-danger btn-sm">
+                        Eliminar</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

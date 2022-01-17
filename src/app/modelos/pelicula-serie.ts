@@ -4,4 +4,5 @@ export class PeliculaSerie {
     titulo!: string;
     fechaCreacion!: string;
     calificacion!: number;
+    imagenHashCode!: number;
 }
